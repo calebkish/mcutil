@@ -62,7 +62,7 @@ func sendLegacyVote(host string, port uint16, opts options.LegacyVote) error {
 
 		split := strings.Split(string(data[:len(data)-1]), " ")
 
-		if !strings.HasPrefix(split[1], "1") {
+		if !strings.HasPrefix(split[1], "1") && !strings.HasPrefix(split[1], "2") {
 			return fmt.Errorf("vote: unknown server Votifier version: %s", split[1])
 		}
 	}
